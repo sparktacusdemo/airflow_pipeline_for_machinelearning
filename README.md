@@ -116,7 +116,34 @@ Template:
 ```
 pyspark --master <your master url> --jars <list of jar packages to include in driver & executors classpaths> --appname <pyspark-name>
 ```
-Then, create a notebook and try to read the data stored in Redshift
+
+Then, create a notebook and try to read the data stored in Redshift;
+- in your notebook,check the spark configuration. The spark context is 'sc', by default
+```
+print(sc)
+print(sc.getConf().getAll())
+```
+- create a SparkSession
+```
+spark_session = SparkSession(sc)
+```
+- and read the data previously loaded in Redshift,through the Airflow pipeline
+```
+sql_context = SparkSession(sc)
+df = sql_context.read \
+    .format("jdbc") \
+    .option("url", "jdbc:redshift://xxxxxx.redshift.amazonaws.com:5439/<redshift_db>") \
+    .option("dbtable", "<redshift_schema>.<redshift_table>") \
+    .option("driver","com.amazon.redshift.jdbc42.Driver") \
+    .option("UID", "<redshift_user>") \
+    .option("PWD","<redshift_password>") \
+    .load()
+
+df.show()
+```
+That's it
+
+
 
 
 
