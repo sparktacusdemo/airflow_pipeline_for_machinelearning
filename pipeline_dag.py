@@ -17,9 +17,7 @@ import boto3
 args = {
     'owner': 'Airflow',
     'start_date': days_ago(2),
-    'conn_id':'conn_aws_251490606181',
-    #'conn_id': 'my_spark_standalone',
-    #'packages': 'com.amazon.redshift:redshift-jdbc42-no-awssdk:1.2.45.1069,com.amazonaws:aws-java-sdk:1.7.4,org.apache.hadoop:hadoop-auth:2.7.4,org.apache.hadoop:hadoop-common:2.7.4,com.google.code.findbugs:jsr305:3.0.2,asm:asm:3.2,org.slf4j:slf4j-api:1.7.30,org.xerial.snappy:snappy-java:1.1.7.5,org.slf4j:slf4j-log4j12:1.7.30,org.apache.hadoop:hadoop-aws:2.7.3'
+    'conn_id':'conn_aws_xxxx',
 }
 
 mydag = DAG(
