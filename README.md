@@ -63,13 +63,19 @@ In Airflow, the task is implemented as following: we use a SparkSubmit operator
 
 ```
 task5 = SparkSubmitOperator(
-    task_id='task_aws_s3_pyspark',
-    application='s3redshift.py',
+    task_id='task_pyspark_s3toredshift',
+    application='pyspark_s3toredshift.py',
     dag=mydag,
     packages='com.amazon.redshift:redshift-jdbc42-no-awssdk:1.2.45.1069,com.amazonaws:aws-java-sdk:1.7.4,org.apache.hadoop:hadoop-auth:2.7.4,org.apache.hadoop:hadoop-common:2.7.4,com.google.code.findbugs:jsr305:3.0.2,asm:asm:3.2,org.slf4j:slf4j-api:1.7.30,org.xerial.snappy:snappy-java:1.1.7.5,org.slf4j:slf4j-log4j12:1.7.30,org.apache.hadoop:hadoop-aws:2.7.3',
-    conn_id= 'my_spark_standalone'
+    conn_id= 'spark_standalone_airflow_connection'
 )
 ```
+Notice the important points:
+- use the task parameter 'application' to call the pyspark application
+- use the 'conn_id' parameter to set the connection Airflow/Spark cluster (the connection is created in airflow UI (port 8080))
+- provide the jar packages through 'packages' task parameter
+
+the complete Airflow pipeline dag is available ![here](http://www.)
 
 
 
