@@ -107,14 +107,18 @@ export PYSPARK_DRIVER_PYTHON=jupyter
 export PYSPARK_DRIVER_PYTHON_OPTS='notebook'
 ```
 
-And, launch Jupyter as following:
+And, launch Jupyter as following, with the jar package 'redshift-jdbc42-1.2.43.1067.jar'
 ```
-$ pyspark --master --jars 
+$ pyspark --master "spark://localhost.home:7077" --jars "redshift-jdbc42-1.2.43.1067.jar" 
 ```
+
 Template:
 ```
 pyspark --master <your master url> --jars <list of jar packages to include in driver & executors classpaths> --appname <pyspark-name>
 ```
+Then, create a notebook and try to read the data stored in Redshift
+
+
 
 
 
