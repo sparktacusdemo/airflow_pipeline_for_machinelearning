@@ -1,4 +1,4 @@
-# Airflow pipeline for machinelearnig
+# Airflow pipeline for machinelearning
 how to build a efficient a big data pipeline for machine learning projects: Airflow, aws s3, Spark, aws Redshift, Jupyter/Spark ML
 
 
@@ -85,5 +85,9 @@ the complete Airflow pipeline dag is available ![here](https://github.com/sparkt
 
 
 #### Jupyter notebook
+
+Lets say, you already configure your python and jupyter tools:
+- for example, you are working in a conda environment
+- you already instlled jupyter inside your conda system
 
 
