@@ -141,7 +141,14 @@ df = sql_context.read \
 
 df.show()
 ```
-That's it
+That's it, now you can perform some SQL request on the df dataframe.
+
+## Spark ML
+
+In this section, i will process the data, e.g with Spark ML. Let's build a Spark ML Pipelines.
+
+
+
 
 
 
