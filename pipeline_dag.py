@@ -1,15 +1,8 @@
 from __future__ import print_function
 
-#import time
-#from builtins import range
-#from pprint import pprint
-
 from airflow.utils.dates import days_ago
-
 from airflow.models import DAG
 from airflow.operators.python_operator import PythonOperator
-from airflow.providers.apache.spark.operators.spark_jdbc import SparkJDBCOperator
-from airflow.providers.apache.spark.operators.spark_sql import SparkSqlOperator
 from airflow.providers.apache.spark.operators.spark_submit import SparkSubmitOperator
 import boto3
 
