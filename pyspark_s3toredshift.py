@@ -6,7 +6,7 @@ if __name__ == "__main__":
     
     #configure pyspark environment
     myconf = (SparkConf()\
-        .setMaster("spark://pclocalhost.home:7077")\
+        .setMaster("spark://<master_ip_instance>:7077")\
         .setAppName("pysparks3toredshift")\
         .set("spark.executor.memory","2g"))
 
