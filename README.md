@@ -92,4 +92,32 @@ Lets say, you already configure your python and jupyter tools:
 
 In this section, the purpose is to configure jupyter and spark, so that i can use Pyspark in my notebook, and redshift data can be read from jupyter.
 
+- setting 1: update Spark-env-.sh
+This point is important because your python version in jupyter can be different from the one in Spark executor environment
+```
+export PYSPARK_PYTHON=/usr/bin/python3.7
+```
+
+The python version must be the same in your jupyter notebook and in the spark executor.
+
+- setting 2:
+Update your bashrc file, add the 2 lines below:
+```
+export PYSPARK_DRIVER_PYTHON=jupyter
+export PYSPARK_DRIVER_PYTHON_OPTS='notebook'
+```
+
+And, launch Jupyter as following:
+```
+$ pyspark --master --jars 
+```
+Template:
+```
+pyspark --master <your master url> --jars <list of jar packages to include in driver & executors classpaths> --appname <pyspark-name>
+```
+
+
+
+
+
 
