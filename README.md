@@ -57,6 +57,22 @@ task1 = PythonOperator(
 ```
 A callable function is implemented, and this function is called by the task. This function use the Boto3 package to handle the data transfer. Notice the way the arguments are eclared in the function and how they are passed into the task, through 'op_kwargs' parameter. The function requires3 arguments:'bucket_name' the aws s3 bucket where the data must be stored, 'source_file_path' : the data source path, 'dest_aws_file_name':the aws object name.<br>
 
+![alt text](https://github.com/sparktacusdemo/demo1_airflow_pipeline_for_machinelearning/blob/main/2.png)
+
+In Airflow, the task is implemented as following: we use a SparkSubmit operator
+
+```
+task5 = SparkSubmitOperator(
+    task_id='task_aws_s3_pyspark',
+    application='s3redshift.py',
+    dag=mydag,
+    packages='com.amazon.redshift:redshift-jdbc42-no-awssdk:1.2.45.1069,com.amazonaws:aws-java-sdk:1.7.4,org.apache.hadoop:hadoop-auth:2.7.4,org.apache.hadoop:hadoop-common:2.7.4,com.google.code.findbugs:jsr305:3.0.2,asm:asm:3.2,org.slf4j:slf4j-api:1.7.30,org.xerial.snappy:snappy-java:1.1.7.5,org.slf4j:slf4j-log4j12:1.7.30,org.apache.hadoop:hadoop-aws:2.7.3',
+    conn_id= 'my_spark_standalone'
+)
+```
+
+
+
 
 ##### Airflow task: Aggregate and store in Redshift
 
