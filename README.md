@@ -59,6 +59,10 @@ A callable function is implemented, and this function is called by the task. Thi
 
 ![alt text](https://github.com/sparktacusdemo/demo1_airflow_pipeline_for_machinelearning/blob/main/2.png)
 
+##### Airflow task: Aggregate and store in Redshift
+
+To complete this task, i use a pyspark application, described ![here](http://www).
+
 In Airflow, the task is implemented as following: we use a SparkSubmit operator
 
 ```
@@ -78,8 +82,6 @@ Notice the important points:
 the complete Airflow pipeline dag is available ![here](https://github.com/sparktacusdemo/demo1_airflow_pipeline_for_machinelearning/blob/main/pipeline_dag.py)
 
 
-##### Airflow task: Aggregate and store in Redshift
-
-To complete this task, i use a pyspark application, described ![here](http://www).
+#### Jupyter notebook
 
 
