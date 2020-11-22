@@ -75,9 +75,7 @@ Notice the important points:
 - use the 'conn_id' parameter to set the connection Airflow/Spark cluster (the connection is created in airflow UI (port 8080))
 - provide the jar packages through 'packages' task parameter
 
-the complete Airflow pipeline dag is available ![here](http://www.)
-
-
+the complete Airflow pipeline dag is available ![here](https://github.com/sparktacusdemo/demo1_airflow_pipeline_for_machinelearning/blob/main/pipeline_dag.py)
 
 
 ##### Airflow task: Aggregate and store in Redshift
