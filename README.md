@@ -88,6 +88,8 @@ the complete Airflow pipeline dag is available ![here](https://github.com/sparkt
 
 Lets say, you already configure your python and jupyter tools:
 - for example, you are working in a conda environment
-- you already instlled jupyter inside your conda system
+- you already installed jupyter inside your conda system
+
+In this section, the purpose is to configure jupyter and spark, so that i can use Pyspark in my notebook, and redshift data can be read from jupyter.
 
 
