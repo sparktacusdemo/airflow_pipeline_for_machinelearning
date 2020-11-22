@@ -35,7 +35,7 @@ In the Airflow dag, 2 type of tasks are provided:
 - type 1: the tasks to collect the data and store in the aws s3 buckets
 - type 2: the task to aggregate, transform the data, and store in Redshift datawarehouse
 
-###### Type 1: 
+###### Airflow task: Collect and store in aws s3 
 
 Here, i use a PythonOperator.<br>
 
@@ -55,6 +55,11 @@ task1 = PythonOperator(
     dag=mydag,
 )
 ```
-A callable function is implemented, and this function is called by the task. Notice how the arguments are passed into the task, through 'op_kwargs' parameter. The function requires3 arguments:'bucket_name' the aws s3 bucket where the data must be stored, 'source_file_path' : the data source path, 'dest_aws_file_name':the aws object name.<br>
+A callable function is implemented, and this function is called by the task. This function use the Boto3 package to handle the data transfer. Notice the way the arguments are eclared in the function and how they are passed into the task, through 'op_kwargs' parameter. The function requires3 arguments:'bucket_name' the aws s3 bucket where the data must be stored, 'source_file_path' : the data source path, 'dest_aws_file_name':the aws object name.<br>
+
+
+##### Airflow task: Aggregate and store in Redshift
+
+To complete this task, i use a pyspark application, described ![here](http://www).
 
 
